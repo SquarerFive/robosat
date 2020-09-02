@@ -1,4 +1,7 @@
 import argparse
+import sys
+
+import os
 
 from robosat.tools import (
     compare,
@@ -56,8 +59,18 @@ def add_parsers():
 def main():
     """main entrypoint for robosat tools"""
     args = add_parsers()
+    #print(args.func)
     args.func(args)
-
+    print("back to main")
+    #os.system("kill %d" % os.getpid())
+    os.kill(os.getpid(), 9)
+    
+    
+    
 
 if __name__ == "__main__":
+    print("__main__")
     main()
+    print("finished main")
+    exit()
+    quit()
